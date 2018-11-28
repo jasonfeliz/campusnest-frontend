@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>CampusNest - Online Forum for College Students</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,39 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Campus Nest</h1>
+
+      <div class="form-section">
+        <form id="signup-form">
+            <input type="username" name="username" placeholder="Choose Username">
+            <input type="email" name="email" placeholder="Enter email(must be .edu)">
+            <input type="text" name="college" placeholder="Your College">
+            <input type="password" name="password" placeholder="Choose Password" >
+            <input type="password" name="password_confirmation" placeholder="Confirm Password">
+            <button id="signup-button">Sign Up</button>
+        </form>          
+      </div>
+
+      <div class="form-section">
+        <form id="signin-form">
+            <input type="email" name="email" placeholder="Enter Email">
+            <input type="password" name="password" placeholder="Enter Password">
+            <button id="signin-button">Sign In</button>
+        </form>
+      </div>
+
+      <div class="form-section">
+        <form id="changepw-form">
+          <input type="password" name="old" placeholder="Old Password">
+          <input type="password" name="new" placeholder="New Password">
+          <button id="chhangepw-button">Change Password</button>
+        </form>
+      </div>
+
+      <div class="form-section">
+        <form id="signout-form">
+          <button id="signout-button">Log out</button>
+        </form>
+      </div>
     </body>
 </html>
