@@ -10,6 +10,7 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body>
       <h1>Campus Nest</h1>
@@ -19,10 +20,14 @@
             <input type="username" name="username" placeholder="Choose Username">
             <input type="email" name="email" placeholder="Enter email(must be .edu)">
             <input type="text" name="college" placeholder="Your College">
-            <!-- <input type="hidden" name="college-id" id="college-id"> -->
+            <input type="hidden" name="college_id" id="college-id">
             <input type="password" name="password" placeholder="Choose Password" >
             <input type="password" name="password_confirmation" placeholder="Confirm Password">
             <button id="signup-button">Sign Up</button>
+
+            <div id="college-list-overlay">
+                <div id="college-list"></div>
+            </div>
         </form>          
       </div>
 
@@ -50,5 +55,6 @@
 
 
       <pre></pre>
+
     </body>
 </html>

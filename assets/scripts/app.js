@@ -7,5 +7,8 @@ const events = require('./events.js')
 // require('./example')
 
 $(() => {
+
   events.addHandlers()
+
+  
 })

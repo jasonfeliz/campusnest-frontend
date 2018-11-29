@@ -16,16 +16,17 @@ const validateSignUpForm = function(obj){
 	const errorArr = []
 	//go through form and check if values are empty
 		//if any inputs are empty, store input name id in error array 
-	checkEmptyValues(obj) ? errorArr.push('Please fill in all fields') : errorArr.push()
+	checkEmptyValues(obj) ? errorArr.push('Please fill in all fields') : errorArr
 	//check if username is taken
 	const usernameInputValue = $('#signup-form > input[name="username"]').val()
 	api.checkUsername(usernameInputValue).done(function(response){
-		response === 'taken' ? errorArr.push('Username is taken') : errorArr.push()
+		response === 'taken' ? errorArr.push('Username is taken') : errorArr
 	})
-	//check if email ends wit edu
-		//if email doesn't end with edu, store input name email in error array
 	//check is passwords match
 		//if passwords match store password input name in error array
+	const password = $('#signup-form > input[name="password"]').val()
+	const password_confirm = $('#signup-form > input[name="password_confirmation"]').val()
+	password !== password_confirm ? errorArr.push("Passwords don't match") : errorArr
 	//if error array is empty, return true, else handle error ui's and send error message
 	return errorArr
 }
