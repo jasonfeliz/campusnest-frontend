@@ -71,43 +71,68 @@ const onCreateDiscussion = function(event){
 
 const onGetAllDiscussions = function(event){
 	event.preventDefault()
-	$('#discussion-form').html('')
+	$('#discussion-form > *').hide()
 	const dataObj = {'discussion':{}}
 	dataObj.discussion.college_id = store.college.id
 	helper.api.onGetDiscussionsApi(dataObj).then(ui.displayDiscussions)
 }
 
 const onGetDiscussion = function(event){
+	$('#get-discussion-form .form-message').html('')
 	event.preventDefault()
-	const getId = $('#get_discussion-form > input[name="id"]').val()
+	const getId = $('#get-discussion-form > input[name="id"]').val()
 	if (getId === "" || isNaN(getId) ) {
-		$('#get_discussion-form .form-message').append('Id must be a number')
-		$('#get_discussion-form .form-message').addClass('error')
+		$('#get-discussion-form .form-message').append('Id must be a number')
+		$('#get-discussion-form .form-message').addClass('error')
 	}else{
 		const dataObj = {'discussion':{}}
 		dataObj.discussion.id = getId
-		helper.api.onGetDiscussionsApi(dataObj).then(ui.displayDiscussion).catch(function(){
-			$('#create-form .form-message').append('<div>Discussion could not be found</div>')
-			$('#create-form .form-message').addClass('error')			
+		helper.api.onGetDiscussionApi(dataObj).then(ui.displayDiscussion).catch(function(){
+			$('#get-discussion-form .form-message').append('<div>Discussion could not be found</div>')
+			$('#get-discussion-form .form-message').addClass('error')			
 		})
 	}
 
 }
 
 const onDeleteDiscussion = function(event){
+	$('#delete-form .form-message').html('')
 	event.preventDefault()
+	const getId = $('#delete-form > input[name="id"]').val()
+	if (getId === "" || isNaN(getId) ) {
+		$('#delete-form .form-message').append('Id must be a number')
+		$('#delete-form .form-message').addClass('error')
+	}else{
+		const dataObj = {'discussion':{}}
+		dataObj.discussion.id = getId
+		helper.api.onDeleteApi(dataObj).then(ui.deleteSuccess).catch(function(){
+			$('#delete-form .form-message').append('<div>Discussion could not be found</div>')
+			$('#delete-form .form-message').addClass('error')			
+		})
+	}
 }
 
 const onUpdateDiscussion = function(event){
+	$('#edit-form .form-message').html('')
 	event.preventDefault()
-}
-const onShowUserProfile = function(event){
-	event.preventDefault()
+	const getId = $('#edit-form > input[name="id"]').val()
+	if (getId === "" || isNaN(getId) ) {
+		$('#edit-form .form-message').append('Id must be a number')
+		$('#edit-form .form-message').addClass('error')
+	}else{
+		const dataObj = {'discussion':{}}
+		dataObj.discussion.id = getId
+		const title = $('#edit-form > input[name="title"]').val()
+		const body = $('#edit-form > textarea[name="body"]').val()
+		dataObj.discussion.title = title
+		dataObj.discussion.body = body
+		helper.api.onUpdateApi(dataObj).then(ui.updateSuccess).catch(function(){
+			$('#edit-form .form-message').append('<div>Discussion could not be found</div>')
+			$('#edit-form .form-message').addClass('error')			
+		})
+	}
 }
 
-const onGetUserInterests = function(event){
-	event.preventDefault()
-}
 // stretch goals
 // const onGetReplies = function(event){
 
@@ -127,7 +152,13 @@ const onGetUserInterests = function(event){
 // const onSchoolSearch = function(event){
 
 // }
+// const onShowUserProfile = function(event){
+// 	event.preventDefault()
+// }
 
+// const onGetUserInterests = function(event){
+// 	event.preventDefault()
+// }
 
 
 
@@ -141,33 +172,43 @@ const addHandlers = function (){
 	//on button click discussion events
 	$('#create-form').submit(onCreateDiscussion)
 	$('#get-discussion-form').submit(onGetDiscussion)
+	$('#delete-form').submit(onDeleteDiscussion)
+	$('#edit-form').submit(onUpdateDiscussion)
 
 
 	$('#all-posts-button').click(onGetAllDiscussions)
 	
 	$('#create-post-button').click(function(){
+		$('#create-form').css('display','flex')
+		$('#create-form').css('flex-direction','column')
+		$('#get-discussion-form').hide()
+		$('#delete-form').hide()
+		$('#edit-form').hide()
 		$('#post-list').html('')
-		$('#discussion-form').show()
-		const formHtml = $('#create').html();
-		$('#discussion-form').html(formHtml)
+
+
 	})
 	$('#edit-post-button').click(function(){
+		$('#create-form').hide()
+		$('#get-discussion-form').hide()
+		$('#delete-form').hide()
+		$('#edit-form').css('display','flex')
+		$('#edit-form').css('flex-direction','column')
 		$('#post-list').html('')
-		$('#discussion-form').show()
-		const formHtml = $('#edit').html();
-		$('#discussion-form').html(formHtml)
 	})
 	$('#get-post-button').click(function(){
+		$('#create-form').hide()
+		$('#get-discussion-form').show()
+		$('#delete-form').hide()
+		$('#edit-form').hide()
 		$('#post-list').html('')
-		$('#discussion-form').show()
-		const formHtml = $('#get').html();
-		$('#discussion-form').html(formHtml)
 	})
 	$('#delete-post-button').click(function(){
+		$('#create-form').hide()
+		$('#get-discussion-form').hide()
+		$('#edit-form').hide()
 		$('#post-list').html('')
-		$('#discussion-form').show()
-		const formHtml = $('#delete').html();
-		$('#discussion-form').html(formHtml)
+		$('#delete-form').show()
 	})
 	//when user clicks on college input
 	$('#signup-form > input[name="college"]').focus(function(){

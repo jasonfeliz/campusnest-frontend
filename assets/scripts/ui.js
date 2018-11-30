@@ -23,8 +23,9 @@ const loadHomepage = function(){
 	$('#college-name').text(store.college.college_name)
 	$('#city').text(store.college.city + ', ')
 	$('#state').text(store.college.state)
-	const formHtml = $('#create').html();
-	$('#discussion-form').html(formHtml)
+	$('#post-list').html('')
+		$('#create-form').css('display','flex')
+		$('#create-form').css('flex-direction','column')
 }
 
 
@@ -40,7 +41,6 @@ const signInSuccess = function(data){
 	$('.modal, .landing-page').hide()
 	$('#signin-form input').val('')
 	$('.main-page').show()
-	console.log(data.user)
 	//load homepage for signed in
 	loadHomepage()
 
@@ -56,7 +56,6 @@ const signInError = function(){
 
 const displayDiscussions = function(data){
 	const dataArr = data.discussions
-	const userId = store.user.id
   	const showDiscussionsHtml = showDiscussions(
   		{
   			discussions : dataArr
@@ -65,12 +64,42 @@ const displayDiscussions = function(data){
 }
 
 const displayDiscussion = function(data){
-	console.log(data)
+	let content = "<div class='post-item' data-id='" + data.discussion.id +"'>"
+	content += "<h4>" + data.discussion.title + "</h4>"
+	content += "<div class='post-info'>"
+	content += "<span class='author'>Created by: " + data.discussion.user.username + "</span>"
+	content += "<span class='date'>" + data.discussion.created_at + "</span>"
+	content += "<span class='category'>" + data.discussion.interest.interest_name + "</span>"
+	content += "</div>"
+	content +=  "<p>" + data.discussion.body + "</p>"
+	content += "</div>"
+	$('#post-list').html(content)
 }
+                    
+                        
+ const deleteSuccess = function(){
+ 		$('#delete-form .form-message').append('<div>Post deleted successfully!</div>')
+		$('#delete-form .form-message').addClass('success')
+		$('#delete-form > input,#delete-form > input').val('')
+ }                  
+  
+  const updateSuccess = function(){
+ 		$('#edit-form .form-message').append('<div>Post updated successfully!</div>')
+		$('#edit-form .form-message').addClass('success')
+		$('#edit-form > input,#edit-form > textarea').val('')
+ }                          
+                            
+                            
+                        
+                        
+                    
 module.exports = {
 	signUpSuccess,
 	signInSuccess,
 	signInError,
 	displayDiscussions,
-	displayDiscussion
+	displayDiscussion,
+	deleteSuccess,
+	updateSuccess
+
 }

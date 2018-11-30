@@ -42,7 +42,10 @@ const signOutApi = function() {
 		success: function(){
 			store.user = null
 			store.college = null
-			$('pre').append('Thank you for signing out')
+			$('.main-page').hide()
+			$('.landing-page').show()
+			$('#signup-form .form-message').html('<div>You have successfully logged out</div>')
+			$('#signup-form .form-message').addClass('success')
 		}
 	})
 }
@@ -56,7 +59,14 @@ const onChangePwApi = function(dataObj){
 		},
 		data: dataObj,
 		success: function(){
-			$('pre').append('You have successfully changed your password')
+			$('#changepw-form > input').val('')
+			$('#large-message').text('You have successfully changed your password')
+			$('#large-message').css('background','#e6fff4')
+			$('#large-message').css('color','#52a453')
+			$('#large-message').css('padding', '15px 5px')
+			setTimeout(function(){
+				$('#large-message').hide()
+			},4000)
 		}
 	})
 }
@@ -81,14 +91,30 @@ const onGetDiscussionsApi = function(dataObj){
 }
 
 const onGetDiscussionApi = function(dataObj){
-	console.log(dataObj)
-	// return $.ajax({
-	// 	method: "GET",
-	// 	url: config.apiUrl + '/discussions',
-	// 	data: dataObj
-	// })	
+	return $.ajax({
+		method: "GET",
+		url: config.apiUrl + '/discussions/'+dataObj.discussion.id,
+	})	
 }
-
+const onDeleteApi = function(dataObj){
+	return $.ajax({
+		method: "DELETE",
+		url: config.apiUrl + '/discussions/'+dataObj.discussion.id,
+		headers: {
+			Authorization: "Token token=" + store.user.token
+		}
+	})	
+}
+const onUpdateApi = function(dataObj){
+	return $.ajax({
+		method: "PATCH",
+		url: config.apiUrl + '/discussions/'+dataObj.discussion.id,
+		headers: {
+			Authorization: "Token token=" + store.user.token
+		},
+		data:dataObj
+	})	
+}
 
 module.exports = {
 	signUpApi,
@@ -97,5 +123,8 @@ module.exports = {
 	signOutApi,
 	onChangePwApi,
 	onCreateDiscussionApi,
-	onGetDiscussionsApi
+	onGetDiscussionsApi,
+	onGetDiscussionApi,
+	onDeleteApi,
+	onUpdateApi
 }

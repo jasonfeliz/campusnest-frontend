@@ -102,6 +102,7 @@
                     <span id="state"></span>
                 </div>
             </section>
+            <div id="large-message"></div>
             <section class="action">
                 <button id="all-posts-button">All Discussions</button>
                 <button id="get-post-button">Get Discussion</button>
@@ -111,10 +112,6 @@
                 
             </section>
             <section class="discussion-form" id="discussion-form">
-
-            </section>
-            <div class="storage-box">
-              <div id="create">
                 <form id="create-form">
                     <div class="form-message"></div>
                     <select id="interest-list" name="interest_id"></select>
@@ -123,32 +120,27 @@
                     <button type="submit">Create Post</button>
                     <input type="hidden" name="college_id" value>
                     <input type="hidden" name="user_id" value>
-                </form>               
-              </div>
-              <div id="get">
+                </form> 
                 <form id="get-discussion-form">
                     <div class="form-message"></div>
                     <input type="text" name="id"  placeholder="Get Post Id">
                     <button type="submit">Find Post</button>
-                </form>                
-              </div>
-              <div id="edit">
+                </form> 
                 <form id="edit-form">
                     <div class="form-message"></div>
                     <input type="text" name="id"  placeholder="Edit Post Id">
-                    <button type="submit">Find Post</button>
-                    <input type="hidden" name="user_id" value>
-                </form>               
-              </div>
-              <div id="delete">
+                    <input type="text" name="title"  placeholder="Edit Title">
+                    <textarea name="body" placeholder="Edit Body"></textarea> 
+                    <button type="submit">Update Post</button>
+                </form> 
                 <form id="delete-form">
                     <div class="form-message"></div>
                     <input type="text" name="id"  placeholder="Delete Post Id">
                     <button type="submit">Find Post</button>
                     <input type="hidden" name="user_id" value>
-                </form>                
-              </div>
-            </div>
+                </form>
+
+            </section>
             <section class="discussions" id="post-list">
             </section> 
         </div>
