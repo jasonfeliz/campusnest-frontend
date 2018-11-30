@@ -1,12 +1,249 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-	padding: 0 10px;
+	margin:0;
 }
 .form-section {
 	margin: 20px 0;
 }
 
+button {
+	cursor:pointer;
+}
 .college-list-item {
 	cursor:pointer;
+    width: 30.33%;
+    font-size: 0.8em;
+    border: solid 1px rgba(0,0,0,.1);
+    padding: 20px 15px;
+    margin: 5px auto;
+    border-radius: 10px;
+    background: #796eff;
+    color: #fff;
+}
+
+.main-page{
+	display:none;
+}
+
+.landing-page {
+	width:100%;
+
+}
+
+.main-page > .header {
+	display:flex;
+}
+.primary-landing {
+	padding: 0 10px;
+	width: 65%;
+    position: absolute;
+    min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-image: url(../public/landing.jpg);
+    text-align: center;
+    color: #fff;
+}
+
+.secondary-landing {
+	width: 35%;
+	min-height: 100%;
+	position: absolute;
+	right:0;
+	text-align:center;
+}
+
+.landing-welcome {
+	position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 0 50px;
+    width:100%;
+	margin-bottom: 50px;
+    padding: 50px 0;
+    border-top: dashed 1px rgba(255,255,255,.45);
+    border-bottom: dashed 1px rgba(255,255,255,.45);
+}
+.signup-form {
+	margin-top:35%;
+}
+.signup-form > form{
+	display:flex;
+	flex-direction:column;
+	width: 70%;
+	margin: 0 auto;
+
+}
+
+.signup-form > form > input,
+ .signin-form input,
+ .discussion-form > form > select,
+ .discussion-form > form > input,
+ .discussion-form > form > textarea{
+	margin: 5px;
+	padding: 10px;
+	border-radius: 7px;
+	border: solid 1px rgba(0,0,0,.1);
+	color: rgba(0,0,0,.65);
+}
+.signin-form input {
+	padding: 5px;
+	margin: 2px;
+	border-radius: 3px;
+}
+.signup-form > form > input:focus,
+,
+ .discussion-form > form > select:focus,
+ .discussion-form > form > input:focus{
+	outline:none;
+	border-radius: 30px;
+	border-color:rgb(148, 135, 211);
+}
+
+.form-message {
+	
+    border-radius: 3px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    
+}
+.form-message.error {
+	background: #ffe6e6;
+	color: #f65353;
+}
+
+.form-message.success {
+	 background: #e6fff4;
+    color: #52a453;
+}
+
+
+#college-list-overlay {
+	display:none;
+	position:absolute;
+	width: 100%;
+	background: #fff;
+	padding: 50px 0;
+	border: solid 1px rgba(0,0,0,.2);
+	border-radius: 10px;
+	right:0;
+	top: 10px;
+}
+
+#college-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.main-content {
+	text-align: center;
+}
+.banner {
+	padding: 55px 0;
+    background: #DF7367;
+    color: #fff;
+}
+
+.discussions,
+.discussion-form{
+	max-width: 790px;
+    margin: 0 auto;
+}
+.discussion-form {
+	max-width: 490px;
+	margin-top: 5px;
+}
+
+.post-item {
+	position:relative;
+	text-align:left;
+	border-bottom: solid 1px rgba(0,0,0,.1);
+	color: rgba(0,0,0,.7);
+	margin-top: 25px;
+	padding: 15px;
+}
+
+.post-item > h4 {
+	color: #796eff;
+}
+
+.post-info{
+	font-style: italic;
+	color: rgba(0,0,0,.4);
+	font-size: .85em;
+	margin-bottom: 10px;
+}
+.post-info span {
+	margin-right: 10px;
+}
+
+.category {
+	font-style:normal;
+	color:#DF7367;
+	border: solid 1px rgba(0,0,0,.1);
+	border-radius: 30px;
+	padding: 5px 10px;
+}
+.delete-post {
+	position: absolute;
+    right: 0;
+    background: transparent;
+    border:none;
+    color: rgba(0,0,0,.4);
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+.delete-post:hover{
+	color: rgba(0,0,0,.2);
+}
+.action {
+	margin: 15px 0;
+	padding: 10px;
+}
+.action button {
+	background: #796eff;
+	color: #fff;
+	border: none;
+	padding: 5px 15px;
+	border-radius: 4px;
+}
+
+
+#create-form {
+	display:flex;
+	flex-direction:column;
+}
+
+
+.discussion-form > form > select {
+	width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 45px;
+}
+
+.discussion-form > form > textarea {
+	height: 150px;
+}
+
+.discussion-form > form > textarea:focus {
+	outline:none;
+	border-color: #796eff;
+}
+
+.discussion-form > form > button {
+	width: 120px;
+	margin-top: 10px;
+	margin-left: auto;
+}
+
+.storage-box {
+	display:none;
 }

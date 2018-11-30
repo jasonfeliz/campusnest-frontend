@@ -31,10 +31,15 @@ const validateSignUpForm = function(obj){
 	return errorArr
 }
 
+const validateDiscussionForm = function(){
+	const errorArr = []
+	$('#create-form > select').val() === "" ? errorArr.push("You must choose an interest") : errorArr
+	$('#create-form > input').val() === "" ? errorArr.push("Please add a title for your post") : errorArr
+	$('#create-form > textarea').val() === "" ? errorArr.push("Write something interesting!") : errorArr
 
+	return errorArr
 
-
-
+}
 
 
 
@@ -53,5 +58,6 @@ module.exports = {
 	getFormData,
 	checkEmptyValues,
 	validateSignUpForm,
-	api
+	api,
+	validateDiscussionForm
 }

@@ -1,0 +1,22 @@
+
+                    <div>
+                        <select id="filter-discussions">
+                          <option>Browse by topic:</option>
+                        </select> 
+                    </div>
+                    {{#each discussions as |post|}}
+                      {{log post}}
+
+                    <div class="post-item" data-id="{{post.id}}">
+                        <h4>{{post.title}}</h4>
+                        <div class="post-info">
+                            <span class="author">Created by: {{post.user.username}}</span>
+                            <span class="date">{{post.created_at}}</span>
+                            <span class="category">{{post.interest.interest_name}}</span>
+                        </div>
+                        <p>{{post.body}}</p>
+                    </div> 
+
+
+                    {{/each}}
+ 
