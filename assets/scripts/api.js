@@ -67,6 +67,16 @@ const onChangePwApi = function(dataObj){
 			setTimeout(function(){
 				$('#large-message').hide()
 			},4000)
+		},
+		error: function(){
+			$('#changepw-form > input').val('')
+			$('#large-message').text('You entered an invalid password. Try again')
+			$('#large-message').css('background','#ffe6e6')
+			$('#large-message').css('color','#f65353')
+			$('#large-message').css('padding', '15px 5px')
+			setTimeout(function(){
+				$('#large-message').hide()
+			},4000)			
 		}
 	})
 }

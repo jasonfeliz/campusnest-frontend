@@ -31,7 +31,14 @@ button {
 	width:100%;
 
 }
-
+.overlay {
+	width: 100%;
+    position: absolute;
+    background: rgba(0,0,0,.2);
+    height: 100%;
+    top: 0;
+    right: 0;
+}
 .main-page > .header {
 	display:flex;
 	align-items:center;
@@ -49,7 +56,7 @@ button {
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-image: url(../public/landing.jpg);
+    background-image: url(public/landing.jpg);
     text-align: center;
     color: #fff;
 }
@@ -72,8 +79,6 @@ button {
     width:100%;
 	margin-bottom: 50px;
     padding: 50px 0;
-    border-top: dashed 1px rgba(255,255,255,.45);
-    border-bottom: dashed 1px rgba(255,255,255,.45);
 }
 .signup-form {
 	margin-top:35%;
@@ -86,7 +91,7 @@ button {
 
 }
 
-#signup-button, 
+#signup-button,
 button#signin-modal,
 #changepw-button,
 #signout-button,
@@ -134,11 +139,11 @@ button#signin-modal,
 }
 
 .form-message {
-	
+
     border-radius: 3px;
     padding: 10px 0;
     margin-bottom: 10px;
-    
+
 }
 .form-message.error {
 	background: #ffe6e6;
