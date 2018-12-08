@@ -38,14 +38,6 @@ const signOutApi = function() {
 		url: config.apiUrl + '/sign-out',
 		headers: {
 			Authorization: "Token token=" + store.user.token
-		},
-		success: function(){
-			store.user = null
-			store.college = null
-			$('.main-page').hide()
-			$('.landing-page').show()
-			$('#signup-form .form-message').html('<div>You have successfully logged out</div>')
-			$('#signup-form .form-message').addClass('success')
 		}
 	})
 }
@@ -57,17 +49,7 @@ const onChangePwApi = function(dataObj){
 		headers: {
 			Authorization: "Token token=" + store.user.token
 		},
-		data: dataObj,
-		success: function(){
-			$('#changepw-form > input').val('')
-			$('#large-message').text('You have successfully changed your password')
-			$('#large-message').css('background','#e6fff4')
-			$('#large-message').css('color','#52a453')
-			$('#large-message').css('padding', '15px 5px')
-			setTimeout(function(){
-				$('#large-message').hide()
-			},4000)
-		}
+		data: dataObj
 	})
 }
 
@@ -79,7 +61,7 @@ const onCreateDiscussionApi = function(dataObj){
 			Authorization: "Token token=" + store.user.token
 		},
 		data: dataObj
-	})	
+	})
 }
 
 const onGetDiscussionsApi = function(dataObj){
@@ -87,14 +69,14 @@ const onGetDiscussionsApi = function(dataObj){
 		method: "GET",
 		url: config.apiUrl + '/discussions',
 		data: dataObj
-	})	
+	})
 }
 
 const onGetDiscussionApi = function(dataObj){
 	return $.ajax({
 		method: "GET",
 		url: config.apiUrl + '/discussions/'+dataObj.discussion.id,
-	})	
+	})
 }
 const onDeleteApi = function(dataObj){
 	return $.ajax({
@@ -103,7 +85,7 @@ const onDeleteApi = function(dataObj){
 		headers: {
 			Authorization: "Token token=" + store.user.token
 		}
-	})	
+	})
 }
 const onUpdateApi = function(dataObj){
 	return $.ajax({
@@ -113,7 +95,7 @@ const onUpdateApi = function(dataObj){
 			Authorization: "Token token=" + store.user.token
 		},
 		data:dataObj
-	})	
+	})
 }
 
 module.exports = {

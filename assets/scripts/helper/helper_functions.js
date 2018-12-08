@@ -11,11 +11,11 @@ const checkEmptyValues = function(obj) {
 	}
 	return false
 }
-
+//validate signup form
 const validateSignUpForm = function(obj){
 	const errorArr = []
 	//go through form and check if values are empty
-		//if any inputs are empty, store input name id in error array 
+		//if any inputs are empty, store input name id in error array
 	checkEmptyValues(obj) ? errorArr.push('Please fill in all fields') : errorArr
 	//check if username is taken
 	const usernameInputValue = $('#signup-form > input[name="username"]').val()
@@ -31,6 +31,7 @@ const validateSignUpForm = function(obj){
 	return errorArr
 }
 
+//validation discussion form
 const validateDiscussionForm = function(){
 	const errorArr = []
 	$('#create-form > select').val() === "" ? errorArr.push("You must choose an interest") : errorArr
@@ -42,7 +43,18 @@ const validateDiscussionForm = function(){
 }
 
 
+//display message to user when user succesfully changes password and signUpSuccess
+const displayMessage = function(message){
+  $('#large-message').text(message)
+  $('#large-message').css('background','#e6fff4')
+  $('#large-message').css('color','#52a453')
+  $('#large-message').css('padding', '15px 5px')
+  setTimeout(function(){
+    $('#large-message').removeAttr("style").html("")
+  },4000)
+}
 
+//gets form data
 const getFormData = function(formDataArray,dataName){
 	const dataObject = {}
 	dataObject[dataName] = {}
@@ -59,5 +71,6 @@ module.exports = {
 	checkEmptyValues,
 	validateSignUpForm,
 	api,
-	validateDiscussionForm
+	validateDiscussionForm,
+  displayMessage
 }

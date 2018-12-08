@@ -6,9 +6,9 @@ const onSignUp = function(event){
 	$('#signup-form .form-message').html('')
 	$('#signup-form .form-message').removeClass('error success')
 
-	event.preventDefault()	
+	event.preventDefault()
 	// //gather up form data
-	// //form data must be in a credentials object 
+	// //form data must be in a credentials object
 	// 	//with email, password, password_confirmation, college_id, username keys
 	const dataObj = helper.getFormData($('#signup-form').serializeArray(),'credentials')
 	// //run some validations
@@ -27,20 +27,20 @@ const onSignUp = function(event){
 
 const onSignIn = function(event){
 	event.preventDefault()
-	const dataObj = helper.getFormData($('#signin-form').serializeArray(),'credentials')	
+	const dataObj = helper.getFormData($('#signin-form').serializeArray(),'credentials')
 	helper.api.signInApi(dataObj).then(ui.signInSuccess).catch(ui.signInError)
 }
 
 const onSignOut = function(event){
 	event.preventDefault()
-	helper.api.signOutApi()
+	helper.api.signOutApi().then(ui.signOutSuccess)
 }
 
 
 const onChangePw = function(event){
 	event.preventDefault()
 	const dataObj = helper.getFormData($('#changepw-form').serializeArray(),'passwords')
-	helper.api.onChangePwApi(dataObj)
+	helper.api.onChangePwApi(dataObj).then(ui.changePasswordSuccess)
 }
 
 const onCreateDiscussion = function(event){
@@ -66,7 +66,7 @@ const onCreateDiscussion = function(event){
 			$('#create-form .form-message').addClass('error')
 		})
 	}
-	
+
 }
 
 const onGetAllDiscussions = function(event){
@@ -89,7 +89,7 @@ const onGetDiscussion = function(event){
 		dataObj.discussion.id = getId
 		helper.api.onGetDiscussionApi(dataObj).then(ui.displayDiscussion).catch(function(){
 			$('#get-discussion-form .form-message').append('<div>Discussion could not be found</div>')
-			$('#get-discussion-form .form-message').addClass('error')			
+			$('#get-discussion-form .form-message').addClass('error')
 		})
 	}
 
@@ -107,7 +107,7 @@ const onDeleteDiscussion = function(event){
 		dataObj.discussion.id = getId
 		helper.api.onDeleteApi(dataObj).then(ui.deleteSuccess).catch(function(){
 			$('#delete-form .form-message').append('<div>Discussion could not be found</div>')
-			$('#delete-form .form-message').addClass('error')			
+			$('#delete-form .form-message').addClass('error')
 		})
 	}
 }
@@ -128,7 +128,7 @@ const onUpdateDiscussion = function(event){
 		dataObj.discussion.body = body
 		helper.api.onUpdateApi(dataObj).then(ui.updateSuccess).catch(function(){
 			$('#edit-form .form-message').append('<div>Discussion could not be found</div>')
-			$('#edit-form .form-message').addClass('error')			
+			$('#edit-form .form-message').addClass('error')
 		})
 	}
 }
@@ -177,7 +177,7 @@ const addHandlers = function (){
 
 
 	$('#all-posts-button').click(onGetAllDiscussions)
-	
+
 	$('#create-post-button').click(function(){
 		$('#create-form').css('display','flex')
 		$('#create-form').css('flex-direction','column')
@@ -185,7 +185,8 @@ const addHandlers = function (){
 		$('#delete-form').hide()
 		$('#edit-form').hide()
 		$('#post-list').html('')
-
+    $(" .form-message").html('').removeClass('success error')
+    $('input').val('')
 
 	})
 	$('#edit-post-button').click(function(){
@@ -195,6 +196,8 @@ const addHandlers = function (){
 		$('#edit-form').css('display','flex')
 		$('#edit-form').css('flex-direction','column')
 		$('#post-list').html('')
+    $(" .form-message").html('').removeClass('success error')
+    $('input').val('')
 	})
 	$('#get-post-button').click(function(){
 		$('#create-form').hide()
@@ -202,6 +205,8 @@ const addHandlers = function (){
 		$('#delete-form').hide()
 		$('#edit-form').hide()
 		$('#post-list').html('')
+    $(" .form-message").html('').removeClass('success error')
+    $('input').val('')
 	})
 	$('#delete-post-button').click(function(){
 		$('#create-form').hide()
@@ -209,6 +214,8 @@ const addHandlers = function (){
 		$('#edit-form').hide()
 		$('#post-list').html('')
 		$('#delete-form').show()
+    $(" .form-message").html('').removeClass('success error')
+    $('input').val('')
 	})
 	//when user clicks on college input
 	$('#signup-form > input[name="college"]').focus(function(){
