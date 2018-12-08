@@ -71,7 +71,17 @@ const signOutSuccess =  function(){
 
 const changePasswordSuccess = function(){
   $('#changepw-form > input').val('')
+	$('#changepw-form .form-message').removeClass("error").html("")
   helper.displayMessage('You have successfully changed your password')
+}
+const changePasswordFailure = function(){
+  $('#changepw-form > input').val('')
+  $('#changepw-form .form-message').html('<div>You entered an invalid password</div>')
+	$('#changepw-form .form-message').addClass('error')
+	$('#changepw-form > input').val('')
+  setTimeout(function(){
+    $('#changepw-form .form-message').removeClass("error").html("")
+  },5000)
 }
 
 const signInError = function(){
@@ -129,6 +139,7 @@ module.exports = {
 	deleteSuccess,
 	updateSuccess,
   signOutSuccess,
-  changePasswordSuccess
+  changePasswordSuccess,
+  changePasswordFailure
 
 }

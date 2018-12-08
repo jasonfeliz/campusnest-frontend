@@ -40,7 +40,7 @@ const onSignOut = function(event){
 const onChangePw = function(event){
 	event.preventDefault()
 	const dataObj = helper.getFormData($('#changepw-form').serializeArray(),'passwords')
-	helper.api.onChangePwApi(dataObj).then(ui.changePasswordSuccess)
+	helper.api.onChangePwApi(dataObj).then(ui.changePasswordSuccess).catch(ui.changePasswordFailure)
 }
 
 const onCreateDiscussion = function(event){
