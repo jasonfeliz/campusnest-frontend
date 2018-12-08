@@ -39,6 +39,7 @@ button {
 .main-page > .header > * {
 	margin:10px auto;
 }
+
 .primary-landing {
 	padding: 0 10px;
 	width: 65%;
@@ -49,7 +50,7 @@ button {
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-image: url(../public/landing.jpg);
+    background-image: url(public/bg3.jpg);
     text-align: center;
     color: #fff;
 }
@@ -72,8 +73,18 @@ button {
     width:100%;
 	margin-bottom: 50px;
     padding: 50px 0;
-    border-top: dashed 1px rgba(255,255,255,.45);
-    border-bottom: dashed 1px rgba(255,255,255,.45);
+}
+
+.landing-welcome > h1,
+.landing-welcome > h4
+ {
+  font-family: 'Quicksand', helvetica;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.landing-welcome > h4 {
+  opacity: .75;
 }
 .signup-form {
 	margin-top:35%;
@@ -86,7 +97,7 @@ button {
 
 }
 
-#signup-button, 
+#signup-button,
 button#signin-modal,
 #changepw-button,
 #signout-button,
@@ -134,11 +145,11 @@ button#signin-modal,
 }
 
 .form-message {
-	
+
     border-radius: 3px;
     padding: 10px 0;
     margin-bottom: 10px;
-    
+
 }
 .form-message.error {
 	background: #ffe6e6;
@@ -276,4 +287,14 @@ button#signin-modal,
 #edit-form,
 #delete-form {
 	display:none;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
 }
