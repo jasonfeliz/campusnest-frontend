@@ -95,6 +95,25 @@ const onGetDiscussion = function(event){
 
 }
 
+const onGetEditDiscussion = function(event){
+	$('#edit-find-form .form-message').html('')
+  $('#edit-find-form .form-message').removeClass('success error')
+	event.preventDefault()
+	const getId = $('#edit-find-form > input[name="id"]').val()
+	if (getId === "" || isNaN(getId) ) {
+		$('#edit-find-form .form-message').append('Id must be a number')
+		$('#edit-find-form .form-message').addClass('error')
+	}else{
+		const dataObj = {'discussion':{}}
+		dataObj.discussion.id = getId
+		helper.api.onGetDiscussionApi(dataObj).then(ui.displayEditDiscussion).catch(function(){
+			$('#edit-find-form .form-message').append('<div>Discussion could not be found</div>')
+			$('#edit-find-form .form-message').addClass('error')
+		})
+	}
+
+}
+
 const onDeleteDiscussion = function(event){
 	$('#delete-form .form-message').html('')
 	event.preventDefault()
@@ -114,8 +133,9 @@ const onDeleteDiscussion = function(event){
 
 const onUpdateDiscussion = function(event){
 	$('#edit-form .form-message').html('')
+  console.log('update discussion')
 	event.preventDefault()
-	const getId = $('#edit-form > input[name="id"]').val()
+	const getId = $('#edit-id').val()
 	if (getId === "" || isNaN(getId) ) {
 		$('#edit-form .form-message').append('Id must be a number')
 		$('#edit-form .form-message').addClass('error')
@@ -173,8 +193,8 @@ const addHandlers = function (){
 	$('#create-form').submit(onCreateDiscussion)
 	$('#get-discussion-form').submit(onGetDiscussion)
 	$('#delete-form').submit(onDeleteDiscussion)
-	$('#edit-form').submit(onUpdateDiscussion)
-
+	$('#edit-find-form').submit(onGetEditDiscussion)
+  $('#edit-form').submit(onUpdateDiscussion)
 
 	$('#all-posts-button').click(onGetAllDiscussions)
 
@@ -183,7 +203,7 @@ const addHandlers = function (){
 		$('#create-form').css('flex-direction','column')
 		$('#get-discussion-form').hide()
 		$('#delete-form').hide()
-		$('#edit-form').hide()
+		$('#edit-find-form').hide()
 		$('#post-list').html('')
     $(" .form-message").html('').removeClass('success error')
     $('input').val('')
@@ -193,8 +213,7 @@ const addHandlers = function (){
 		$('#create-form').hide()
 		$('#get-discussion-form').hide()
 		$('#delete-form').hide()
-		$('#edit-form').css('display','flex')
-		$('#edit-form').css('flex-direction','column')
+    $('#edit-find-form').show()
 		$('#post-list').html('')
     $(" .form-message").html('').removeClass('success error')
     $('input').val('')
@@ -203,15 +222,15 @@ const addHandlers = function (){
 		$('#create-form').hide()
 		$('#get-discussion-form').show()
 		$('#delete-form').hide()
-		$('#edit-form').hide()
+		$('#edit-find-form').hide()
 		$('#post-list').html('')
-    $(" .form-message").html('').removeClass('success error')
+    $(".form-message").html('').removeClass('success error')
     $('input').val('')
 	})
 	$('#delete-post-button').click(function(){
 		$('#create-form').hide()
 		$('#get-discussion-form').hide()
-		$('#edit-form').hide()
+		$('#edit-find-form').hide()
 		$('#post-list').html('')
 		$('#delete-form').show()
     $(" .form-message").html('').removeClass('success error')

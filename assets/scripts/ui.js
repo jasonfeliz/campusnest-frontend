@@ -113,7 +113,14 @@ const displayDiscussion = function(data){
 	$('#post-list').html(content)
 }
 
-
+const displayEditDiscussion = function(data){
+  $('#edit-form').show()
+  $('#edit-id').val(data.discussion.id)
+  $('#edit-title').val(data.discussion.title)
+  $('#edit-body').val(data.discussion.body)
+  $('#edit-form').css('display','flex')
+  $('#edit-form').css('flex-direction','column')
+}
  const deleteSuccess = function(){
  		$('#delete-form .form-message').append('<div>Post deleted successfully!</div>')
 		$('#delete-form .form-message').addClass('success')
@@ -140,6 +147,7 @@ module.exports = {
 	updateSuccess,
   signOutSuccess,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  displayEditDiscussion
 
 }
