@@ -34,6 +34,7 @@ const loadHomepage = function(){
 	$('#post-list').html('')
 	$('#create-form').css('display','flex')
 	$('#create-form').css('flex-direction','column')
+  $('#edit-find-form').hide()
 }
 
 
