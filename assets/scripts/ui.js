@@ -93,9 +93,18 @@ const signInError = function(){
 
 const displayDiscussions = function(data){
 	const dataArr = data.discussions
+  dataArr.forEach(function(e,i){
+      if(e.user.id === store.user.id){
+        e.owner = true
+      }else{
+        e.owner = false
+      }
+  })
+  console.log(dataArr)
   	const showDiscussionsHtml = showDiscussions(
   		{
-  			discussions : dataArr
+  			discussions : dataArr,
+        current_user_id:  store.user.id
   		})
   	$('#post-list').html(showDiscussionsHtml)
 }

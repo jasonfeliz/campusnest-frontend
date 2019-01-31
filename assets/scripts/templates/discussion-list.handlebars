@@ -4,6 +4,7 @@
                           <option>Browse by topic:</option>
                         </select>
                     </div>
+
                     {{#each discussions as |post|}}
 
 
@@ -15,6 +16,10 @@
                             <span class="category">{{post.interest.interest_name}}</span>
                         </div>
                         <p>{{post.body}}</p>
+                        {{#if post.owner}}
+                          <p>remove post</p>
+                          <p>edit post post</p>
+                        {{/if}}
                     </div>
 
 
