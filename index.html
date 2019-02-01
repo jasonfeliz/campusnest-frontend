@@ -6,6 +6,7 @@
 
       <link href="https://fonts.googleapis.com/css?family=Quicksand:200,300,400,600" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -112,8 +113,6 @@
                 <button id="get-post-button">Get Discussion</button>
                 <button id="create-post-button">Create Post</button>
                 <button id="edit-post-button">Edit Discussion</button>
-                <button id="delete-post-button">Remove Discussion</button>
-
             </section>
             <section class="discussion-form" id="discussion-form">
                 <form id="create-form">
@@ -142,16 +141,38 @@
                   <textarea name="body" placeholder="Edit Body"  id="edit-body"></textarea>
                   <button type="submit" id="update-post-button">Update Post</button>
                 </form>
-                <form id="delete-form">
-                    <div class="form-message"></div>
-                    <input type="text" name="id"  placeholder="Delete Post Id">
-                    <button type="submit">Find Post</button>
-                    <input type="hidden" name="user_id" value>
-                </form>
+
 
             </section>
+
             <section class="discussions" id="post-list">
+
             </section>
+
+            <div class="modal" id="confirm-modal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Confirm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                    <div class="modal-body">
+                        <div class="modal-message"></div>
+                        <p>Are you sure you want to remove this post?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <form id="delete-form">
+                          <input type="hidden" name="id" value>
+                          <button type="submit" class="btn btn-primary" id="remove-button">Yes</button>
+                          <button type="button" class="btn btn-secondary cancel-button">Cancel</button>
+                      </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+             <!--  end of confirm modal -->
         </div>
       </div> <!-- end main page -->
     </body>

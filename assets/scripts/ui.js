@@ -93,10 +93,19 @@ const signInError = function(){
 
 
 const displayDiscussions = function(data){
+
 	const dataArr = data.discussions
+  dataArr.forEach(function(e,i){
+      if(e.user.id === store.user.id){
+        e.owner = true
+      }else{
+        e.owner = false
+      }
+  })
   	const showDiscussionsHtml = showDiscussions(
   		{
-  			discussions : dataArr
+  			discussions : dataArr,
+        current_user_id:  store.user.id
   		})
   	$('#post-list').html(showDiscussionsHtml)
 }
@@ -123,9 +132,9 @@ const displayEditDiscussion = function(data){
   $('#edit-form').css('flex-direction','column')
 }
  const deleteSuccess = function(){
- 		$('#delete-form .form-message').append('<div>Post deleted successfully!</div>')
-		$('#delete-form .form-message').addClass('success')
-		$('#delete-form > input,#delete-form > input').val('')
+   $('#confirm-modal').hide()
+   helper.displayMessage('Your post has been deleted')
+	 $('#delete-form > input').val('')
  }
 
   const updateSuccess = function(){

@@ -1,9 +1,10 @@
 
-                    <!-- <div>
+                    <div>
                         <select id="filter-discussions">
                           <option>Browse by topic:</option>
                         </select>
-                    </div> -->
+                    </div>
+
                     {{#each discussions as |post|}}
 
 
@@ -15,6 +16,12 @@
                             <span class="category">{{post.interest.interest_name}}</span>
                         </div>
                         <p>{{post.body}}</p>
+                        {{#if post.owner}}
+                        <div class="post-actions">
+                          <i class="fas fa-times delete-post-button"></i>
+                          <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        {{/if}}
                     </div>
 
 

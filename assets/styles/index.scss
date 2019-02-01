@@ -293,8 +293,7 @@ button#signin-modal,
 
 #get-discussion-form,
 #create-form,
-#edit-form,
-#delete-form {
+#edit-form{
 	display:none;
 }
 
@@ -318,4 +317,24 @@ button#signin-modal,
 #college-name {
   font-family: 'Quicksand', helvetica;
   text-transform: uppercase;
+}
+
+
+.post-actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+}
+
+.post-actions i {
+  cursor:pointer;
+  color: rgba(0,0,0,.35);
+}
+.post-actions i:hover {
+  color:rgba(0,0,0,.55);
+}
+
+.post-actions > i:first-child {
+  margin-right: 15px;
 }

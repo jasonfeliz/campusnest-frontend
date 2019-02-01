@@ -117,20 +117,19 @@ const onGetEditDiscussion = function(event){
 }
 
 const onDeleteDiscussion = function(event){
-	$('#delete-form .form-message').html('')
 	event.preventDefault()
-	const getId = $('#delete-form > input[name="id"]').val()
-	if (getId === "" || isNaN(getId) ) {
-		$('#delete-form .form-message').append('Id must be a number')
-		$('#delete-form .form-message').addClass('error')
-	}else{
-		const dataObj = {'discussion':{}}
-		dataObj.discussion.id = getId
-		helper.api.onDeleteApi(dataObj).then(ui.deleteSuccess).catch(function(){
-			$('#delete-form .form-message').append('<div>Discussion could not be found</div>')
-			$('#delete-form .form-message').addClass('error')
-		})
-	}
+	const postId = $('#delete-form > input[name="id"]').val()
+
+	helper.api.onDeleteApi(postId)
+    .then(function(){
+      ui.deleteSuccess()
+      $(`.post-item[data-id=${postId}]`).remove();
+    })
+    .catch(function(){
+		    $('#delete-form .form-message').append('<div>Discussion could not be found</div>')
+		    $('#delete-form .form-message').addClass('error')
+	})
+
 }
 
 const onUpdateDiscussion = function(event){
@@ -223,13 +222,14 @@ const addHandlers = function (){
     $(".form-message").html('').removeClass('success error')
     $('input').val('')
 	})
-	$('#delete-post-button').click(function(){
-		$('#create-form,#get-discussion-form,#edit-find-form,#edit-form').hide()
-		$('#post-list').html('')
-		$('#delete-form').show()
-    $(" .form-message").html('').removeClass('success error')
-    $('input').val('')
-	})
+
+  $('#post-list').on('click', '.delete-post-button', function(){
+    const postId = $(this).parents('.post-item').data('id')
+    $('#delete-form input[name="id"]').val(postId)
+		$('#confirm-modal').show()
+  })
+
+
 	//when user clicks on college input
 	$('#signup-form > input[name="college"]').focus(function(){
 		$('#college-list-overlay').fadeIn()
