@@ -202,21 +202,21 @@ const addHandlers = function (){
 	$('#create-post-button').click(function(){
 		$('#create-form').css('display','flex')
 		$('#create-form').css('flex-direction','column')
-		$('#get-discussion-form,#delete-form,#edit-find-form,#edit-form').hide()
+		$('#get-discussion-form,#edit-find-form,#edit-form').hide()
 		$('#post-list').html('')
     $(" .form-message").html('').removeClass('success error')
     $('input').val('')
 
 	})
 	$('#edit-post-button').click(function(){
-		$('#create-form,#get-discussion-form,#delete-form,#edit-form').hide()
+		$('#create-form,#get-discussion-form,#edit-form').hide()
     $('#edit-find-form').show()
 		$('#post-list').html('')
     $(" .form-message").html('').removeClass('success error')
     $('input').val('')
 	})
 	$('#get-post-button').click(function(){
-		$('#create-form,#delete-form,#edit-find-form,#edit-form').hide()
+		$('#create-form,#edit-find-form,#edit-form').hide()
 		$('#get-discussion-form').show()
 		$('#post-list').html('')
     $(".form-message").html('').removeClass('success error')
