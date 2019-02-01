@@ -112,7 +112,6 @@
                 <button id="all-posts-button">All Discussions</button>
                 <button id="get-post-button">Get Discussion</button>
                 <button id="create-post-button">Create Post</button>
-                <button id="edit-post-button">Edit Discussion</button>
             </section>
             <section class="discussion-form" id="discussion-form">
                 <form id="create-form">
@@ -177,20 +176,20 @@
                        <span aria-hidden="true">&times;</span>
                      </button>
                    </div>
-                     <div class="modal-body">
-                         <div class="modal-message"></div>
-                         <form id="edit-form">
-                           <div class="form-message"></div>
-                           <input type="text" name="title"  placeholder="Edit Title" id="edit-title">
-                           <input type="hidden" name="id" value="" id="edit-id">
-                           <textarea name="body" placeholder="Edit Body"  id="edit-body"></textarea>
-                           <button type="submit" id="update-post-button">Save</button>
-                         </form>
-                     </div>
-                     <div class="modal-footer">
-                           <button type="submit" class="btn btn-primary" id="edit-button">Yes</button>
-                           <button type="button" class="btn btn-secondary cancel-button">Cancel</button>
-                     </div>
+                   <form id="edit-form">
+                       <div class="modal-body">
+                           <div class="modal-message"></div>
+                             <div class="form-message"></div>
+                             <input type="text" name="title"  placeholder="Edit Title" id="edit-title">
+                             <input type="hidden" name="id" value="" id="edit-id">
+                             <textarea name="body" placeholder="Edit Body"  id="edit-body"></textarea>
+
+                       </div>
+                       <div class="modal-footer">
+                             <button type="submit" class="btn btn-primary" id="edit-button">Save</button>
+                             <button type="button" class="btn btn-secondary cancel-button">Cancel</button>
+                       </div>
+                  </form>
                  </div>
                </div>
              </div>

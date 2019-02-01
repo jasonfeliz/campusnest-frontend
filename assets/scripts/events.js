@@ -134,24 +134,25 @@ const onDeleteDiscussion = function(event){
 
 const onUpdateDiscussion = function(event){
 	$('#edit-form .form-message').html('')
-  console.log('update discussion')
+
 	event.preventDefault()
-	const getId = $('#edit-id').val()
-	if (getId === "" || isNaN(getId) ) {
-		$('#edit-form .form-message').append('Id must be a number')
-		$('#edit-form .form-message').addClass('error')
-	}else{
+	const postId = $('#edit-id').val()
 		const dataObj = {'discussion':{}}
-		dataObj.discussion.id = getId
-		const title = $('#edit-form > input[name="title"]').val()
-		const body = $('#edit-form > textarea[name="body"]').val()
+		dataObj.discussion.id = postId
+		const title = $('#edit-form input[name="title"]').val()
+		const body = $('#edit-form textarea[name="body"]').val()
 		dataObj.discussion.title = title
 		dataObj.discussion.body = body
-		helper.api.onUpdateApi(dataObj).then(ui.updateSuccess).catch(function(){
+		helper.api.onUpdateApi(dataObj)
+    .then(() => {
+      ui.updateSuccess()
+      $(`.post-item[data-id=${postId}] .post-title`).text(title);
+      $(`.post-item[data-id=${postId}] .post-body`).text(body);
+    })
+    .catch(function(){
 			$('#edit-form .form-message').append('<div>Discussion could not be found</div>')
 			$('#edit-form .form-message').addClass('error')
 		})
-	}
 }
 
 // stretch goals
@@ -202,21 +203,21 @@ const addHandlers = function (){
 	$('#create-post-button').click(function(){
 		$('#create-form').css('display','flex')
 		$('#create-form').css('flex-direction','column')
-		$('#get-discussion-form,#edit-find-form,#edit-form').hide()
+		$('#get-discussion-form,#edit-find-for').hide()
 		$('#post-list').html('')
     $(" .form-message").html('').removeClass('success error')
     $('input').val('')
 
 	})
 	$('#edit-post-button').click(function(){
-		$('#create-form,#get-discussion-form,#edit-form').hide()
+		$('#create-form,#get-discussion-form').hide()
     $('#edit-find-form').show()
 		$('#post-list').html('')
     $(" .form-message").html('').removeClass('success error')
     $('input').val('')
 	})
 	$('#get-post-button').click(function(){
-		$('#create-form,#edit-find-form,#edit-form').hide()
+		$('#create-form,#edit-find-form').hide()
 		$('#get-discussion-form').show()
 		$('#post-list').html('')
     $(".form-message").html('').removeClass('success error')
@@ -230,6 +231,11 @@ const addHandlers = function (){
   })
   $('#post-list').on('click', '.edit-post-button', function(){
     const postId = $(this).parents('.post-item').data('id')
+    const title = $(this).parents('.post-item').find('.post-title').text()
+    const body = $(this).parents('.post-item').find('.post-body').text()
+    $('#edit-form input[name="id"]').val(postId)
+    $('#edit-form input[name="title"]').val(title)
+    $('#edit-form textarea[name="body"]').val(body)
 		$('#edit-modal').show()
   })
 

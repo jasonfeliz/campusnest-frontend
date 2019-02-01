@@ -138,9 +138,9 @@ const displayEditDiscussion = function(data){
  }
 
   const updateSuccess = function(){
- 		$('#edit-form .form-message').append('<div>Post updated successfully!</div>')
-		$('#edit-form .form-message').addClass('success')
-		$('#edit-form > input,#edit-form > textarea').val('')
+ 		$('#edit-modal').hide()
+     $('#edit-form input').val('')
+    helper.displayMessage('Post updated successfully!')
  }
 
 
