@@ -146,14 +146,12 @@ const displayEditDiscussion = function(data){
     helper.displayMessage('Post updated successfully!')
  }
  const replySuccess = function(data){
-   console.log(data)
    $('#reply-modal').hide()
 	 $('#reply-form textarea').val('')
    $('#replies-list').prepend(`<li class="reply-item"><div>${data.reply.body}</div><span>posted by: ${data.reply.user.username}</span></li>`)
  }
 
 const displayReplies = function(data) {
-  console.log(data)
   let content = ""
   data.replies.forEach(function(e){
     content += `<li class="reply-item"><div>${e.body}</div><span>posted by: ${e.user.username}</span></li>`
