@@ -205,16 +205,6 @@ const addHandlers = function (){
     onGetDiscussion(postId)
   })
 
-	$('#get-post-button').click(function(){
-		$('#create-form,#edit-find-form').hide()
-		$('#get-discussion-form').show()
-		$('#post-list').html('')
-    $(".form-message").html('').removeClass('success error')
-    $('input').val('')
-	})
-
-
-
   $('#post-list').on('click', '.delete-post-button', function(){
     const postId = $(this).parents('.post-item').data('id')
     $('#delete-form input[name="id"]').val(postId)
