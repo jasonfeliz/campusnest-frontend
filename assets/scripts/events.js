@@ -85,10 +85,8 @@ const onGetDiscussion = function(postId){
     .then((data) => {
       ui.displayDiscussion(data)
     })
-    .then(() => {
-      helper.api.onGetRepliesApi(postId)
-    })
-    .then(console.log)
+    .then(() => helper.api.onGetRepliesApi(postId))
+    .then(ui.displayReplies)
     .catch(console.error)
 
 }
@@ -235,7 +233,6 @@ const addHandlers = function (){
 
   $('#post-list').on('click','.reply-btn',function(){
     const postId = $(this).parents('.post-item').data('id')
-    console.log(postId)
     $('#reply-form input[name="id"]').val(postId)
 		$('#reply-modal').show()
   })
