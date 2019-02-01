@@ -17,8 +17,10 @@
                         </div>
                         <p>{{post.body}}</p>
                         {{#if post.owner}}
-                          <p>remove post</p>
-                          <p>edit post post</p>
+                        <div class="post-actions">
+                          <i class="fas fa-times delete-post-button"></i>
+                          <i class="fas fa-pencil-alt"></i>
+                        </div>
                         {{/if}}
                     </div>
 

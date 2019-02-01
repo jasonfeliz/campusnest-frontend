@@ -78,10 +78,10 @@ const onGetDiscussionApi = function(dataObj){
 		url: config.apiUrl + '/discussions/'+dataObj.discussion.id,
 	})
 }
-const onDeleteApi = function(dataObj){
+const onDeleteApi = function(id){
 	return $.ajax({
 		method: "DELETE",
-		url: config.apiUrl + '/discussions/'+dataObj.discussion.id,
+		url: config.apiUrl + '/discussions/'+ id,
 		headers: {
 			Authorization: "Token token=" + store.user.token
 		}
