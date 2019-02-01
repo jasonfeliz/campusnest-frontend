@@ -228,7 +228,10 @@ const addHandlers = function (){
     $('#delete-form input[name="id"]').val(postId)
 		$('#confirm-modal').show()
   })
-
+  $('#post-list').on('click', '.edit-post-button', function(){
+    const postId = $(this).parents('.post-item').data('id')
+		$('#edit-modal').show()
+  })
 
 	//when user clicks on college input
 	$('#signup-form > input[name="college"]').focus(function(){
