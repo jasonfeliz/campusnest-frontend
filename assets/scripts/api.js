@@ -98,6 +98,27 @@ const onUpdateApi = function(dataObj){
 	})
 }
 
+const replyApi = function(dataObj){
+	return $.ajax({
+		method: "POST",
+		url: config.apiUrl + '/replies',
+		headers: {
+			Authorization: "Token token=" + store.user.token
+		},
+		data: dataObj
+	})
+}
+
+const onGetRepliesApi = function(id){
+	return $.ajax({
+		method: "GET",
+		url: config.apiUrl + '/replies/' + id,
+		headers: {
+			Authorization: "Token token=" + store.user.token
+		}
+	})
+}
+
 module.exports = {
 	signUpApi,
 	checkUsername,
@@ -108,5 +129,7 @@ module.exports = {
 	onGetDiscussionsApi,
 	onGetDiscussionApi,
 	onDeleteApi,
-	onUpdateApi
+	onUpdateApi,
+  replyApi,
+  onGetRepliesApi
 }

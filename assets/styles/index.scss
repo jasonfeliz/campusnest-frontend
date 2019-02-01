@@ -319,7 +319,8 @@ button#signin-modal,
 }
 
 
-.post-actions {
+.post-actions,
+.reply-btn {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -338,6 +339,24 @@ button#signin-modal,
   margin-right: 15px;
 }
 
-.post-title {
+.post-title,
+.reply-btn {
   cursor: pointer;
+}
+
+.replies {
+  text-align: left;
+  margin-top: 40px;
+}
+
+.reply-btn {
+  border: solid 1px rgba(0,0,0,.1);
+  border-radius: 4px;
+  color:rgba(0,0,0,.45);
+  padding: 5px 15px;
+}
+
+.reply-btn:hover {
+  color: #DF7367;
+  border-color: #DF7367;
 }

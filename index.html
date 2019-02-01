@@ -122,12 +122,6 @@
                     <input type="hidden" name="college_id" value>
                     <input type="hidden" name="user_id" value>
                 </form>
-                <form id="edit-find-form">
-                    <div class="form-message"></div>
-                    <input type="text" name="id"  placeholder="Find Post Id">
-                    <button type="submit">Find</button>
-                </form>
-
             </section>
 
             <section class="discussions" id="post-list">
@@ -186,6 +180,32 @@
                </div>
              </div>
               <!--  end of edit modal -->
+              <div class="modal" id="reply-modal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Reply</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form id="reply-form">
+                        <div class="modal-body">
+                            <div class="modal-message"></div>
+                              <div class="form-message"></div>
+                              <input type="hidden" name="id" value="">
+                              <textarea name="reply-body" placeholder="Write your reply" required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                              <button type="submit" class="btn btn-primary" id="reply-button">Reply</button>
+                              <button type="button" class="btn btn-secondary cancel-button">Cancel</button>
+                        </div>
+                   </form>
+                  </div>
+                </div>
+              </div>
+               <!--  end of reply modal -->
+
         </div>
       </div> <!-- end main page -->
     </body>

@@ -113,6 +113,7 @@ const displayDiscussions = function(data){
 const displayDiscussion = function(data){
 	let content = "<div class='post-item' data-id='" + data.discussion.id +"'>"
 	content += "<h4>" + data.discussion.title + "</h4>"
+  content += "<span class='reply-btn'>Reply</span>"
 	content += "<div class='post-info'>"
 	content += "<span class='author'>Created by: " + data.discussion.user.username + "</span>"
 	content += "<span class='date'>" + data.discussion.created_at + "</span>"
@@ -120,6 +121,8 @@ const displayDiscussion = function(data){
 	content += "</div>"
 	content +=  "<p>" + data.discussion.body + "</p>"
 	content += "</div>"
+
+  content += '<div class="replies"><h3>Replies</h3><ul id="replies-list"></ul></div>'
 	$('#post-list').html(content)
 }
 
@@ -142,7 +145,11 @@ const displayEditDiscussion = function(data){
      $('#edit-form input').val('')
     helper.displayMessage('Post updated successfully!')
  }
-
+ const replySuccess = function(data){
+   $('#reply-modal').hide()
+	 $('#reply-form textarea').val('')
+   $('#replies-list').prepend(`<li>${data.reply.body}</li>`)
+ }
 
 
 
@@ -158,6 +165,7 @@ module.exports = {
   signOutSuccess,
   changePasswordSuccess,
   changePasswordFailure,
-  displayEditDiscussion
+  displayEditDiscussion,
+  replySuccess
 
 }

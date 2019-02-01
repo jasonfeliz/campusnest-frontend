@@ -81,9 +81,14 @@ const onGetAllDiscussions = function(event) {
 
 const onGetDiscussion = function(postId){
 
-  console.log(postId)
 	helper.api.onGetDiscussionApi(postId)
-    .then(ui.displayDiscussion)
+    .then((data) => {
+      ui.displayDiscussion(data)
+    })
+    .then(() => {
+      helper.api.onGetRepliesApi(postId)
+    })
+    .then(console.log)
     .catch(console.error)
 
 }
@@ -145,6 +150,22 @@ const onUpdateDiscussion = function(event){
 		})
 }
 
+const onReply = function(event){
+  event.preventDefault()
+  const postId = $('#reply-form input[name="id"]').val()
+  const body = $('#reply-form textarea[name="reply-body"]').val()
+  const dataObj = {'reply':{}}
+  dataObj.reply.discussion_id = parseInt(postId)
+  dataObj.reply.user_id = store.user.id
+  dataObj.reply.body = body
+
+  helper.api.replyApi(dataObj)
+    .then((data) => {
+      ui.replySuccess(data)
+    })
+    .catch(console.error)
+}
+
 // stretch goals
 // const onGetReplies = function(event){
 
@@ -154,23 +175,13 @@ const onUpdateDiscussion = function(event){
 
 // }
 
-// const onCreateReplies = function(event){
 
-// }
 
 // const onFilterDiscussions = function(event){
 
 // }
-// const onSchoolSearch = function(event){
 
-// }
-// const onShowUserProfile = function(event){
-// 	event.preventDefault()
-// }
 
-// const onGetUserInterests = function(event){
-// 	event.preventDefault()
-// }
 
 
 
@@ -186,6 +197,7 @@ const addHandlers = function (){
 	$('#get-discussion-form').submit(onGetDiscussion)
 	$('#delete-form').submit(onDeleteDiscussion)
   $('#edit-form').submit(onUpdateDiscussion)
+  $('#reply-form').submit(onReply)
 
 	$('#all-posts-button').click(onGetAllDiscussions)
 
@@ -219,6 +231,13 @@ const addHandlers = function (){
     $('#edit-form input[name="title"]').val(title)
     $('#edit-form textarea[name="body"]').val(body)
 		$('#edit-modal').show()
+  })
+
+  $('#post-list').on('click','.reply-btn',function(){
+    const postId = $(this).parents('.post-item').data('id')
+    console.log(postId)
+    $('#reply-form input[name="id"]').val(postId)
+		$('#reply-modal').show()
   })
 
 	//when user clicks on college input
