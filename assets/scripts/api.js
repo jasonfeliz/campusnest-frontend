@@ -72,10 +72,10 @@ const onGetDiscussionsApi = function(dataObj){
 	})
 }
 
-const onGetDiscussionApi = function(dataObj){
+const onGetDiscussionApi = function(id){
 	return $.ajax({
 		method: "GET",
-		url: config.apiUrl + '/discussions/'+dataObj.discussion.id,
+		url: config.apiUrl + '/discussions/' + id,
 	})
 }
 const onDeleteApi = function(id){
