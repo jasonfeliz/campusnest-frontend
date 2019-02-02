@@ -1,0 +1,290 @@
+[
+  {
+    "id": 1,
+    "interest_name": "Gaming",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 2,
+    "interest_name": "Politics",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 3,
+    "interest_name": "Culture",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 4,
+    "interest_name": "Startups",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 5,
+    "interest_name": "Sports",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 6,
+    "interest_name": "Health + Fitness",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 7,
+    "interest_name": "Spirituality",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 8,
+    "interest_name": "Anime + Comic Books",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 9,
+    "interest_name": "Business",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 10,
+    "interest_name": "Art",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 11,
+    "interest_name": "Music",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 12,
+    "interest_name": "LGBTQ",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 13,
+    "interest_name": "Photography",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 14,
+    "interest_name": "Science + Technology",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 15,
+    "interest_name": "Travel",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 16,
+    "interest_name": "General",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 17,
+    "interest_name": "Social Issues",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 18,
+    "interest_name": "Theatre",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 19,
+    "interest_name": "Books",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 20,
+    "interest_name": "Tv + Films",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 21,
+    "interest_name": "Campus Stories",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 22,
+    "interest_name": "Financial Aid",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 23,
+    "interest_name": "Majors",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 24,
+    "interest_name": "Admissions",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 25,
+    "interest_name": "Greek life",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 26,
+    "interest_name": "Parties",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 27,
+    "interest_name": "Getting Into",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 28,
+    "interest_name": "Sexual Orientation",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 29,
+    "interest_name": "Ethics",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 30,
+    "interest_name": "Campus Life",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 31,
+    "interest_name": "Student Debt",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 32,
+    "interest_name": "Life after College",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 33,
+    "interest_name": "Away from Home",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 34,
+    "interest_name": "Prospective Students",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 35,
+    "interest_name": "Transfer Students",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 36,
+    "interest_name": "Graduate Students",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 37,
+    "interest_name": "Alumni",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 38,
+    "interest_name": "Weird Dreams",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 39,
+    "interest_name": "Environmental Issues",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 40,
+    "interest_name": "Futurism",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 41,
+    "interest_name": "Mainstream Media",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 42,
+    "interest_name": "Food",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 43,
+    "interest_name": "Jobs",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 44,
+    "interest_name": "College Romance",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 45,
+    "interest_name": "Peer Pressure",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 46,
+    "interest_name": "Getting In",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 47,
+    "interest_name": "Freshmen Life",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  },
+  {
+    "id": 48,
+    "interest_name": "Student Debt",
+    "created_at": "2018-11-24 22:08:20.547662",
+    "updated_at": "2018-11-24 22:08:20.547662"
+  }
+]

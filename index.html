@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>CampusNest - Online Forum for College Students</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link href="https://fonts.googleapis.com/css?family=Quicksand:200,300,400,600" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+    </head>
+    <body>
+
+      <div class="landing-page">
+          <div class="primary-landing">
+            <div class="overlay"></div>
+            <div class="landing-welcome">
+              <h1>Welcome to CampusNest!</h1>
+              <h4>Join the best place to discuss your interests on campus</h4>
+            </div>
+          </div> <!-- end primary page -->
+          <div class="secondary-landing">
+            <div class="signin-button">
+              <button id="signin-modal">Sign In</button>
+            </div>
+            <div class="form-section signup-form">
+              <form id="signup-form">
+                  <div class="form-message"></div>
+                  <h4>Register - It's Free!</h4>
+                  <input type="username" name="username" placeholder="Choose Username">
+                  <input type="email" name="email" placeholder="Enter email">
+                  <input type="text" name="college" placeholder="Your College">
+                  <input type="hidden" name="college_id" id="college-id">
+                  <input type="password" name="password" placeholder="Choose Password" >
+                  <input type="password" name="password_confirmation" placeholder="Confirm Password">
+                  <button id="signup-button">Sign Up</button>
+
+                  <div id="college-list-overlay">
+                      <h4>Choose your school</h4>
+                      <div id="college-list"></div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal" id="signin-modal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Sign In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <form id="signin-form" class="signin-form">
+                    <div class="modal-body">
+                        <div class="modal-message"></div>
+                          <div>
+                               <div class="form-message"></div>
+                                <input type="email" name="email" placeholder="Enter Email">
+                                <input type="password" name="password" placeholder="Enter Password">
+
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary" id="signin-button">Sign In</button>
+                      <button type="button" class="btn btn-secondary cancel-button">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- end sign in modal -->
+          </div><!-- end secondary page -->
+
+
+        </div><!-- end landing page -->
+
+      <div class="main-page">
+        <div class="header">
+          <div id="user-welcome"></div>
+          <div class="form-section">
+            <form id="changepw-form">
+              <div class="form-message" style="text-align: center;"></div>
+              <input type="password" name="old" placeholder="Old Password">
+              <input type="password" name="new" placeholder="New Password">
+              <button id="changepw-button">Change Password</button>
+            </form>
+          </div>
+
+          <div class="form-section">
+            <form id="signout-form">
+              <button id="signout-button">Log out</button>
+            </form>
+          </div>
+        </div><!-- end header-->
+
+        <div class="main-content">
+            <section class="banner">
+                <h1 id="college-name"></h1>
+                <div class="college-info">
+                    <span id="city">,</span>
+                    <span id="state"></span>
+                </div>
+            </section>
+            <div id="large-message"></div>
+            <section class="action">
+                <button id="all-posts-button">All Discussions</button>
+                <button id="create-post-button">Create Post</button>
+            </section>
+            <section class="discussion-form" id="discussion-form">
+                <form id="create-form">
+                    <div class="form-message"></div>
+                    <select id="interest-list" name="interest_id"></select>
+                    <input type="text" name="title"  placeholder="Title">
+                    <textarea name="body"  placeholder="What's on your mind?"></textarea>
+                    <button type="submit">Create Post</button>
+                    <input type="hidden" name="college_id" value>
+                    <input type="hidden" name="user_id" value>
+                </form>
+            </section>
+
+            <section class="discussions" id="post-list">
+
+            </section>
+
+            <div class="modal" id="confirm-modal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Confirm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                    <div class="modal-body">
+                        <div class="modal-message"></div>
+                        <p>Are you sure you want to remove this post?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <form id="delete-form">
+                          <input type="hidden" name="id" value>
+                          <button type="submit" class="btn btn-primary" id="remove-button">Yes</button>
+                          <button type="button" class="btn btn-secondary cancel-button">Cancel</button>
+                      </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+             <!--  end of confirm modal -->
+
+             <div class="modal" id="edit-modal">
+               <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <h5 class="modal-title">Edit Post</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                   <form id="edit-form">
+                       <div class="modal-body">
+                           <div class="modal-message"></div>
+                             <div class="form-message"></div>
+                             <input type="text" name="title"  placeholder="Edit Title" id="edit-title">
+                             <input type="hidden" name="id" value="" id="edit-id">
+                             <textarea name="body" placeholder="Edit Body"  id="edit-body"></textarea>
+
+                       </div>
+                       <div class="modal-footer">
+                             <button type="submit" class="btn btn-primary" id="edit-button">Save</button>
+                             <button type="button" class="btn btn-secondary cancel-button">Cancel</button>
+                       </div>
+                  </form>
+                 </div>
+               </div>
+             </div>
+              <!--  end of edit modal -->
+              <div class="modal" id="reply-modal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Reply</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form id="reply-form">
+                        <div class="modal-body">
+                            <div class="modal-message"></div>
+                              <div class="form-message"></div>
+                              <input type="hidden" name="id" value="">
+                              <textarea name="reply-body" placeholder="Write your reply" required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                              <button type="submit" class="btn btn-primary" id="reply-button">Reply</button>
+                              <button type="button" class="btn btn-secondary cancel-button">Cancel</button>
+                        </div>
+                   </form>
+                  </div>
+                </div>
+              </div>
+               <!--  end of reply modal -->
+
+        </div>
+      </div> <!-- end main page -->
+    </body>
+</html>
