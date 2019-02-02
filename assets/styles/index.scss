@@ -380,3 +380,20 @@ button#signin-modal,
   margin-top: 10px;
   font-style: italic;
 }
+
+
+#edit-form > .modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+#edit-form > .modal-body input {
+  margin-bottom: 10px;
+}
+
+#edit-form > .modal-body input,
+#edit-form > .modal-body textarea {
+  padding:10px;
+  border:solid 1px rgba(0,0,0,.1);
+  border-radius: 4px;
+}
